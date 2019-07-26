@@ -1,0 +1,5 @@
+org\voyenbus\demo\poc2\pojos\Viaje.class
+org\voyenbus\demo\poc2\utilidades\Constantes.class
+org\voyenbus\demo\poc2\utilidades\ConvertidorJSON.class
+org\voyenbus\demo\poc2\utilidades\ClienteAPI.class
+org\voyenbus\demo\poc2\inicio\Main.class
