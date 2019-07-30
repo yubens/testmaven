@@ -1,8 +1,6 @@
-package org.voyenbus.demo.poc2.inicio;
+package org.voyenbus.demo.poc2;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import org.voyenbus.demo.poc2.controladores.ControladorViaje;
@@ -10,28 +8,16 @@ import org.voyenbus.demo.poc2.pojos.Info;
 import org.voyenbus.demo.poc2.pojos.Viaje;
 import org.voyenbus.demo.poc2.utilidades.Constantes;
 
-
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
 /**
  *
  * @author PC
  */
 public class Main {
     private static ControladorViaje controlador;
-    //private static List <Viaje> listaViajes;
-    //private static Viaje mejorViaje = null;
-    
+      
     public static void main(String args[]){
         System.out.println(Constantes.BIENVENIDA);        
-        controlador = new ControladorViaje();        
-        //controlador.iniciar();
+        controlador = new ControladorViaje();
         
         Info info = controlador.getInfo();
         Viaje mejorViaje = info.getMejorViaje();  
@@ -50,10 +36,10 @@ public class Main {
         System.out.println(Constantes.INFO_VIAJES);
         System.out.println();
         DecimalFormat format = new DecimalFormat("#0.00");
-        
+                
         while(viajesIterator.hasNext()){
-            Viaje viaje = (Viaje)viajesIterator.next();
-            
+            Viaje viaje = (Viaje)viajesIterator.next();           
+           
             System.out.println(Constantes.EMPRESA + viaje.getNombreCompania());
             System.out.println(Constantes.DIA_SALIDA + viaje.getDiaSalida()); 
             System.out.println(Constantes.HORA_SALIDA + viaje.getHoraSalida());

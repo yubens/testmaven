@@ -29,7 +29,24 @@ public class Constantes {
     public static String ERROR_API_VIAJES = "No se pudo obtener la informacion de los viajes solictados";
     public static String OK = "OK";
     
+    public static String SC = "SC";
+    public static String SEMI = "Semi Cama";
+    public static String EX = "EX";
+    public static String CAMA = "Cama";
+    public static String BC = "BC";
+    public static String SEMISS = "Semi Cama sin Servicio";
+    public static String EJ = "EJ";
+    public static String CAMAEJ = "Cama Ejecutivo";
+    public static String SJ = "SJ";
+    public static String SEMICS = "Semi Cama con Servicio";
+    
+    public static String ERROR_CAT = "No se pudo obtener información del tipo de asiento";
+        
     public static String authToken = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJWb3llbmJ1cyIsImF1ZCI6ImRlbW9WZWIxX3Rlc3QuYXBpIiwiZXhwIjoxNTY0MDg4MjMxLCJzdWIiOiJhdXRoX3Rva2VuIiwiaWF0IjoxNTY0MDg3MzMxLCJqdGkiOiJENDg1OUY1MjVGMDBDMERGMTlDNzJCMTU1NDlCMTJDQyJ9.oxSL9Sm9-VuhAwmIi3hDisg6SlhvA8lX5XIKJ1qH_Lk";
     public static String cookie = "JSESSIONID=D4859F525F00C0DF19C72B15549B12CC";  
+    public static String HOST = "test.api";
+    public static String DESDE_BUSQUEDA = "710";
+    public static String HACIA_BUSQUEDA = "889";
+    public static String FECHA_BUSQUEDA = "2019-08-10";
     
 }

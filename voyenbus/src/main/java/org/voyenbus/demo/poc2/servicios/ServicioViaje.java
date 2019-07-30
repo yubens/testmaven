@@ -5,8 +5,6 @@
  */
 package org.voyenbus.demo.poc2.servicios;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
@@ -21,9 +19,7 @@ import org.voyenbus.demo.poc2.utilidades.ConvertidorJSON;
  * @author PC
  */
 public class ServicioViaje {
-    //private ClienteAPI api;
-    private String json;
-    //private List<Viaje> listaViajes;
+    private String json;    
     private Info info;
     
     public ServicioViaje() {
@@ -34,34 +30,34 @@ public class ServicioViaje {
         info.setViajes(obtenerViajes());
         info.setMejorViaje(obtenerMejorViaje());
         
-        return info;
-        
+        return info;        
     }
     
     public List<Viaje> obtenerViajes() {
         ConvertidorJSON convertidorJSON;
         
         List<Viaje> listaViajes = null;
-        
-        //listaViajes = null;
-        //setListaViajes(null);
+      
         boolean resultado = false;
                 
         ClienteAPI clienteAPI = new ClienteAPI();
-        json = clienteAPI.obtenerViajesHARD();
+        //json = clienteAPI.obtenerViajesHARD();
+        //json = clienteAPI.obtenerViajes();        
+        json = clienteAPI.getViajes();
         
-        if(json != null)
-            resultado = determinarResultado();
+        if(json != null) {
+        	resultado = determinarResultado();        	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+        }
+            
         else
             System.out.println(Constantes.ERROR_API_CONEXION);
         
-        if(resultado && this.json != null){
+        if(resultado && json != null){
             convertidorJSON = new ConvertidorJSON();
             listaViajes = convertidorJSON.JSONaViajes(json);
         } else
             System.out.println(Constantes.ERROR_API_VIAJES);
-                           
-        
+                                   
         return listaViajes;
     }
     

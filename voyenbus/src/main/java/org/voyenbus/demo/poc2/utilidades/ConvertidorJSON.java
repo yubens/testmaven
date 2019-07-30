@@ -8,9 +8,9 @@ package org.voyenbus.demo.poc2.utilidades;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.voyenbus.demo.poc2.pojos.Viaje;
-
 
 /**
  *
@@ -24,17 +24,26 @@ public class ConvertidorJSON {
     
     public List<Viaje> JSONaViajes(String json){
         List<Viaje> lista = new ArrayList<Viaje>();
-        try {
+        try {        	
+           
             JSONObject obj = new JSONObject(json);
-            
-            JSONArray jsonArray = obj.getJSONObject("Trips").getJSONArray("oneWay");           
+            JSONArray jsonArray = obj.getJSONObject("Trips").getJSONArray("oneWay");             
             
             for(int i = 0; i < jsonArray.length(); i++){
                 Viaje viaje = new Viaje();
-                String fecha, hora;
+                String fecha, hora;                
                 
                 viaje.setNombreCompania(jsonArray.getJSONObject(i).getString("companyName"));
-                viaje.setCategoria(jsonArray.getJSONObject(i).getJSONObject("fares").getString("category"));
+                
+                String categoria = null;
+                try {
+                	categoria = jsonArray.getJSONObject(i).getJSONObject("fares").getString("category");
+                }
+                catch(JSONException e) {
+                	categoria = Constantes.ERROR_CAT;
+                }
+                  
+                viaje.setCategoria(categoria);
                 viaje.setPrecio(Double.valueOf(jsonArray.getJSONObject(i).getJSONObject("fares").getString("price")));
                 viaje.setMoneda(jsonArray.getJSONObject(i).getJSONObject("fares").getString("currency"));
                 viaje.setIdDesde(jsonArray.getJSONObject(i).getInt("fromId"));
@@ -81,5 +90,6 @@ public class ConvertidorJSON {
         resultado = fechaHora.split("T");       
 
         return resultado[1].substring(0, 5);
-    }
+    }     
+        
 }

@@ -32,9 +32,5 @@ public class Info {
 
     public void setMejorViaje(Viaje mejorViaje) {
         this.mejorViaje = mejorViaje;
-    }
-
-    
-    
-   
+    }   
 }
